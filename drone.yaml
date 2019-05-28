@@ -23,7 +23,7 @@ spec:
         - name: DRONE_SERVER_HOST
           value: https://drone.example.com
         - name: DRONE_SERVER_PROTO
-          value: https
+          value: http
         - name: DRONE_GITHUB_CLIENT_ID
           valueFrom:
             secretKeyRef:
@@ -49,3 +49,11 @@ spec:
         ports:
           - containerPort: 80
           - containerPort: 443
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80

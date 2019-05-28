@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: drone-ingress
+spec:
+  backend:
+    serviceName: drone-ci-app
+    servicePort: 80
+status:
+  loadBalancer: {}
