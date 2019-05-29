@@ -26,21 +26,23 @@ spec:
           value: http
         - name: DRONE_LOGS_DEBUG
           value: "true"
+        - name: DRONE_USER_CREATE
+          value: "username:stade,machine:false,admin:true"
         - name: DRONE_GITHUB_CLIENT_ID
           valueFrom:
             secretKeyRef:
               name: drone-secrets
-              key: drone_github_client_id
+              key: github_client_id
         - name: DRONE_GITHUB_CLIENT_SECRET
           valueFrom:
             secretKeyRef:
               name: drone-secrets
-              key: drone_github_client_secret
+              key: github_client_secret
         - name: DRONE_RPC_SECRET
           valueFrom:
             secretKeyRef:
               name: drone-secrets
-              key: drone_rpc_secret
+              key: rpc_secret
         resources:
           limits:
             cpu: "1.0"
